@@ -1,29 +1,43 @@
-import java.io.IOException;
-import java.io.PrintWriter;
+<?xml version="1.0" encoding="UTF-8"?>
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-@WebServlet("/hello")
-public class HelloWorldServlet extends HttpServlet {
+    <modelVersion>4.0.0</modelVersion>
 
-    @Override
-    protected void doGet(HttpServletRequest request,
-                          HttpServletResponse response)
-            throws ServletException, IOException {
+    <groupId>com.example</groupId>
+    <artifactId>hello-world</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-        response.setContentType("text/html");
+    <packaging>war</packaging>
 
-        PrintWriter out = response.getWriter();
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-        out.println("<html>");
-        out.println("<body>");
-        out.println("<h1>Hello World!</h1>");
-        out.println("<h2>Deployed using Jenkins CI/CD</h2>");
-        out.println("</body>");
-        out.println("</html>");
-    }
-}
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://3.89.90.91:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://3.89.90.91:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+
+</project>
