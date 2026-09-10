@@ -11,13 +11,24 @@
     <artifactId>hello-world</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <packaging>war</packaging>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
-    <distributionManagement>
 
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <distributionManagement>
         <snapshotRepository>
             <id>nexus-snapshots</id>
             <url>http://3.89.90.91:8081/repository/maven-snapshots/</url>
@@ -27,8 +38,6 @@
             <id>nexus-releases</id>
             <url>http://3.89.90.91:8081/repository/maven-releases/</url>
         </repository>
-
     </distributionManagement>
 
 </project>
-         
