@@ -15,5 +15,20 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
+    
+    <distributionManagement>
+
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://3.89.90.91:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://3.89.90.91:8081/repository/maven-releases/</url>
+        </repository>
+
+    </distributionManagement>
 
 </project>
+         
